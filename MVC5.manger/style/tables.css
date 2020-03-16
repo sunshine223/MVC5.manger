@@ -1,0 +1,117 @@
+﻿* {
+    margin:0;
+    padding:0;
+    border:0;
+}
+
+.box {
+    width: 100%;
+    min-height: 90vh;
+    background-color: #f6f6f6;
+}
+.nav {
+    width: 100%;
+    height: 15vh;
+}
+#texts {
+    width: 60%;
+    height: 15vh;
+    line-height: 15vh;
+    margin-top: 10px;
+    font-size: 1.5em;
+    float: left;
+}
+    #texts a {
+        margin-left:50px;
+        color:#000000;
+        text-decoration:none;
+    }
+#inputs {
+    width: 40%;
+    height: 15vh;
+    margin-top:3.4%;
+    float: right;
+}
+
+#files {
+    position: relative;
+    display: inline-block;
+    background: #D0EEFF;
+    border: 1px solid #99D3F5;
+    border-radius: 4px;
+    padding: 4px 12px;
+    overflow: hidden;
+    color: #1E88C7;
+    text-decoration: none;
+    text-indent: 0;
+    line-height: 20px;
+}
+
+#files input {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+}
+
+#files:hover {
+    background: #AADFFD;
+    border-color: #78C3F3;
+    color: #004974;
+    text-decoration: none;
+}
+
+.tabls {
+    width: 100%;
+    min-height: 70vh;
+}
+
+.add {
+    width: 100%;
+    margin: 0 auto;
+  height:90vh;
+    background-color:#f7f7f7;
+}
+#adds {
+    width: 80%;
+    min-height: 90vh;
+    margin: 0 auto;
+}
+.add p {
+    margin-left:30%;
+  
+    font-size: 1.3em;
+}
+    .tbs {
+        width: 80%;
+        height:20vh;
+     font-size:1.2em;
+  
+    }
+        .tbs input {
+            border:1px solid #c7c1c1;
+        
+        }
+.tb1 {
+    width: 45%;
+    height: 5vh;
+    float: left;
+}
+.tb2 {
+    width: 55%;
+    height: 5vh;
+    float: right;
+}
+.btnsw {
+    width: 80%;
+    height: 10vh;
+    margin: auto 0;
+    background-color: #4cff00;
+}
+.tbs button {
+    float: right;
+    margin-right: 30px;
+    margin-top:30px;
+}
+  

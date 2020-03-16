@@ -1,0 +1,219 @@
+﻿
+@{
+    ViewBag.Title = "Magazine";
+}
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link href="~/style/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <style type="text/css">
+        * {
+            margin: 0px;
+            padding: 0px;
+            border: 0px;
+        }
+
+         .highcharts-exporting-group,
+        .highcharts-credits {
+            display: none;
+        }
+       body{overflow-x:hidden;}
+    </style>
+</head>
+
+<body>
+    <div class="row" style="margin-top:10px;border-bottom:1px solid #e0dbdb">
+        <div class="col-md-6">
+            <div id="chart1"></div>
+        </div>
+        <div class="col-md-6">
+            <div id="chart2"></div>
+        </div>
+    </div>
+
+    <div class="row" style="margin-top:10px;">
+        <div class="col-md-12">
+            <div id="chart3"></div>
+        </div>
+    </div>
+
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="https://code.highcharts.com.cn/highcharts/highcharts.js"></script>
+    <script src="https://code.highcharts.com.cn/highcharts/highcharts-more.js"></script>
+    <script src="https://code.highcharts.com.cn/highcharts/modules/exporting.js"></script>
+    <script src="https://img.hcharts.cn/highcharts-plugins/highcharts-zh_CN.js"></script>
+    <script>
+        Highcharts.setOptions({
+		global: {
+				useUTC: false
+		}
+});
+function activeLastPointToolip(chart) {
+		var points = chart.series[0].points;
+		chart.tooltip.refresh(points[points.length -1]);
+}
+var chart = Highcharts.chart('chart2', {
+		chart: {
+				type: 'spline',
+				marginRight: 10,
+				events: {
+						load: function () {
+								var series = this.series[0],
+										chart = this;
+								activeLastPointToolip(chart);
+								setInterval(function () {
+										var x = (new Date()).getTime(), // 当前时间
+												y = Math.random();          // 随机值
+										series.addPoint([x, y], true, true);
+										activeLastPointToolip(chart);
+								}, 1000);
+						}
+				}
+		},
+		title: {
+				text: '动态实时访问数据'
+		},
+		xAxis: {
+				type: 'datetime',
+				tickPixelInterval: 150
+		},
+		yAxis: {
+				title: {
+						text: null
+				}
+		},
+		tooltip: {
+				formatter: function () {
+						return '<b>' + this.series.name + '</b><br/>' +
+								Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) + '<br/>' +
+								Highcharts.numberFormat(this.y, 2);
+				}
+		},
+		legend: {
+				enabled: false
+		},
+		series: [{
+				name: '访问人数',
+				data: (function () {
+						// 生成随机值
+						var data = [],
+								time = (new Date()).getTime(),
+								i;
+						for (i = -19; i <= 0; i += 1) {
+								data.push({
+										x: time + i * 1000,
+										y: Math.random()
+								});
+						}
+						return data;
+				}())
+		}]
+});
+        // 创建渐变色
+        Highcharts.getOptions().colors = Highcharts.map(Highcharts.getOptions().colors, function (color) {
+            return {
+                radialGradient: { cx: 0.5, cy: 0.3, r: 0.7 },
+                stops: [
+                    [0, color],
+                    [1, Highcharts.Color(color).brighten(-0.3).get('rgb')] // darken
+                ]
+            };
+        });
+        // 构建图表
+        var chart = Highcharts.chart('chart1', {
+            title: {
+                text: '2019年后台管理系统各浏览器的访问量占比'
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                        style: {
+                            color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                        },
+                        connectorColor: 'silver'
+                    }
+                }
+            },
+            series: [{
+                type: 'pie',
+                name: '浏览器占比',
+                data: [
+                    ['Firefox', 45.0],
+                    ['IE', 26.8],
+                    {
+                        name: 'Chrome',
+                        y: 12.8,
+                        sliced: true,
+                        selected: true
+                    },
+                    ['Safari', 8.5],
+                    ['Opera', 6.2],
+                    ['其他', 0.7]
+                ]
+            }]
+        });
+
+        var chart = Highcharts.chart('chart3', {
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: '2019年数据概览'
+            },
+            subtitle: {
+                text: ''
+            },
+            xAxis: {
+                categories: [
+                    '一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'
+                ],
+                crosshair: true
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: '人数 (k)'
+                }
+            },
+            tooltip: {
+                // head + 每个 point + footer 拼接成完整的 table
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                    '<td style="padding:0"><b>{point.y:.1f} k</b></td></tr>',
+                footerFormat: '</table>',
+                shared: true,
+                useHTML: true
+            },
+            plotOptions: {
+                column: {
+                    borderWidth: 0
+                }
+            },
+            series: [{
+                name: '注册用户',
+                data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+            }, {
+                name: '登录用户',
+                data: [83.6, 78.8, 98.5, 93.4, 106.0, 84.5, 105.0, 104.3, 91.2, 83.5, 106.6, 92.3]
+            }, {
+                name: '活跃用户',
+                data: [48.9, 38.8, 39.3, 41.4, 47.0, 48.3, 59.0, 59.6, 52.4, 65.2, 59.3, 51.2]
+            }, {
+                name: '访问用户',
+                data: [42.4, 33.2, 34.5, 39.7, 52.6, 75.5, 57.4, 60.4, 47.6, 39.1, 46.8, 51.1]
+            }]
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,245 @@
+﻿
+* {
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+}
+
+body {
+    background-image: url('img/14301.jpg');
+    background-repeat: no-repeat;
+    background-position: center top;
+}
+
+.a {
+    width: 100%;
+    height: 90px;
+    background-color: #121212;
+    opacity: 0.6;
+}
+
+#b {
+    width: 88%;
+    height: 90px;
+    float:left;
+  
+}
+    #b img {
+        margin-left:120px;
+        margin-top:20px;
+    }
+    #c {
+        width: 12%;
+        height: 90px;
+        font-size: 14px;
+        font-weight: bold;
+        color: #f2eeee;
+        float: right;
+        line-height: 40px;
+    }
+
+    #c li {
+        line-height: 90px;
+        list-style-type: none;
+        width: 60px;
+        float: right;
+        cursor: pointer;
+    }
+    #c li:hover {
+       color:#f50c13;
+    }
+
+.center {
+    width: 940px;
+    height: 254px;
+    margin: 0px auto;
+    background-color: rgba(0,0,0,0.7);
+    background-image: url('img/14304.png');
+    background-repeat: no-repeat;
+    margin-top: 40px;
+}
+
+#title {
+    height: 69px;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 69px;
+    padding-left: 10px;
+}
+
+.center0 {
+    width: 840px;
+    margin: 0px auto;
+    height: 350px;
+    overflow: hidden;
+    background-color: #FFF;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+#center1 {
+    height: 230px;
+    font-weight: bold;
+    line-height: 35px;
+}
+
+#pic1, #pic2, #pic3 {
+    width: 260px;
+    height: 230px;
+    float: left;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.center2 {
+    width: 940px;
+    height: auto;
+    overflow: hidden;
+    margin: 0px auto;
+}
+
+.center01 {
+    width: 260px;
+    height: 110px;
+    float: left;
+    background-image: url("img/14308.png" );
+    background-repeat: no-repeat;
+    padding-left: 50px;
+}
+
+    .center01:hover {
+        background-image: url("img/14309.png" );
+    }
+
+.center02 {
+    width: 260px;
+    height: 110px;
+    float: left;
+    background-image: url("img/14310.png" );
+    background-repeat: no-repeat;
+    padding-left: 50px;
+}
+
+    .center02:hover {
+        background-image: url("img/14311.png" );
+    }
+
+.center03 {
+    width: 260px;
+    height: 110px;
+    float: left;
+    background-image: url("img/14312.png" );
+    background-repeat: no-repeat;
+    padding-left: 50px;
+}
+
+    .center03:hover {
+        background-image: url("img/14313.png" );
+    }
+
+.center3 {
+    width: 940px;
+    height: 250px;
+    overflow: hidden;
+    margin: 0px auto;
+}
+
+.center04 {
+    width: 300px;
+    height: 250px;
+    float: left;
+}
+
+.center06 {
+    padding-left: 30PX;
+    width: 540px;
+    height: 250px;
+    float: left;
+}
+
+#list1 {
+    height: 59px;
+    background-image: url("img/14314.png");
+    background-repeat: no-repeat;
+    background-position: right center;
+    padding-right: 110px;
+    padding-top: 10px;
+    font-size: small;
+}
+
+#list2 {
+    height: 59px;
+    background-image: url("img/14315.png");
+    background-repeat: no-repeat;
+    background-position: right center;
+    padding-right: 110px;
+    padding-top: 10px;
+    font-size: small;
+}
+
+#list3 {
+    height: 69px;
+    background-image: url("img/14316.png");
+    background-repeat: no-repeat;
+    background-position: right center;
+    padding-right: 110px;
+    font-size: small;
+}
+
+#media-title {
+    height: 50px;
+    line-height: 50px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+#media1 {
+    width: 260px;
+    height: 150px;
+    overflow: hidden;
+    float: left;
+    margin-left: 5px;
+    margin-right: 5px;
+    font-size: small;
+}
+
+    #media1 img {
+        border: solid 5px #999;
+    }
+
+#media2 {
+    width: 260px;
+    height: 150px;
+    overflow: hidden;
+    float: left;
+    margin-left: 5px;
+    margin-right: 5px;
+    font-size: small;
+}
+
+    #media2 img {
+        border: solid 5px #999;
+    }
+
+.foot {
+    width: 100%;
+    height: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #3E3C3F;
+}
+
+#foot1 {
+    width: 940px;
+    height: auto;
+    overflow: hidden;
+    margin: 0px auto;
+    color: #AAAAAA;
+}
+
+    #foot1 img {
+        float: left;
+        margin: 20px 50px 20px 0px;
+    }
+
+

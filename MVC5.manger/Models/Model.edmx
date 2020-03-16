@@ -1,0 +1,272 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="mangerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="customer">
+          <Key>
+            <PropertyRef Name="customerid" />
+          </Key>
+          <Property Name="customerid" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="companyname" Type="varchar" MaxLength="50" />
+          <Property Name="connectname" Type="varchar" MaxLength="50" />
+          <Property Name="addresss" Type="varchar" MaxLength="50" />
+          <Property Name="zipcode" Type="varchar" MaxLength="50" />
+          <Property Name="telephone" Type="int" />
+        </EntityType>
+        <EntityType Name="department">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="departmentName" Type="varchar" MaxLength="50" />
+          <Property Name="CreateTime" Type="date" />
+          <Property Name="num" Type="int" />
+          <Property Name="states" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6013: 表/视图“manger.dbo.seller”未定义主键，并且无法推断有效的主键。已排除了此表/视图。若要使用实体，将需要检查您的架构、添加正确的键并取消对实体的注释。
+        <EntityType Name="seller">
+          <Property Name="saleid" Type="varchar" MaxLength="3" />
+          <Property Name="salename" Type="varchar" MaxLength="50" />
+          <Property Name="sex" Type="char" MaxLength="2" />
+          <Property Name="brithday" Type="datetime" />
+          <Property Name="hiredate" Type="datetime" />
+          <Property Name="addresss" Type="varchar" MaxLength="50" />
+          <Property Name="telephone" Type="varchar" MaxLength="43" />
+        </EntityType>-->
+        <EntityType Name="staffInfo">
+          <Key>
+            <PropertyRef Name="empId" />
+          </Key>
+          <Property Name="empId" Type="int" Nullable="false" />
+          <Property Name="empName" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="empPosition" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="empHrId" Type="int" />
+          <Property Name="empInDate" Type="date" Nullable="false" />
+          <Property Name="empSalary" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="empBonus" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="deptId" Type="int" />
+        </EntityType>
+        <EntityType Name="Training">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="people" Type="varchar" MaxLength="100" />
+          <Property Name="theme" Type="varchar" MaxLength="100" />
+          <Property Name="Training_Time" Type="date" />
+          <Property Name="place" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="userChecke">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Name="userID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userName" Type="varchar" MaxLength="50" />
+          <Property Name="userLog" Type="varchar" MaxLength="50" />
+          <Property Name="userPwd" Type="varchar" MaxLength="50" />
+          <Property Name="userType" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="userinfo">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Name="userID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userSex" Type="char" MaxLength="2" />
+          <Property Name="userPhone" Type="int" />
+          <Property Name="userNum" Type="varchar" MaxLength="100" />
+          <Property Name="usermingzu" Type="varchar" MaxLength="100" />
+          <Property Name="userAderrs" Type="varchar" MaxLength="100" />
+          <Property Name="userPhot" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityContainer Name="mangerModelStoreContainer">
+          <EntitySet Name="customer" EntityType="Self.customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="department" EntityType="Self.department" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="staffInfo" EntityType="Self.staffInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Training" EntityType="Self.Training" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="userChecke" EntityType="Self.userChecke" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="userinfo" EntityType="Self.userinfo" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="mangerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="customer">
+          <Key>
+            <PropertyRef Name="customerid" />
+          </Key>
+          <Property Name="customerid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="companyname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="connectname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="addresss" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="zipcode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="telephone" Type="Int32" />
+        </EntityType>
+        <EntityType Name="staffInfo">
+          <Key>
+            <PropertyRef Name="empId" />
+          </Key>
+          <Property Name="empId" Type="Int32" Nullable="false" />
+          <Property Name="empName" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="empPosition" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="empHrId" Type="Int32" />
+          <Property Name="empInDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="empSalary" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="empBonus" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="deptId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="userChecke">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Name="userID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="userLog" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="userPwd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="userType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="mangerEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="customer" EntityType="Self.customer" />
+          <EntitySet Name="staffInfo" EntityType="Self.staffInfo" />
+          <EntitySet Name="userChecke" EntityType="Self.userChecke" />
+          <EntitySet Name="department" EntityType="mangerModel.department" />
+          <EntitySet Name="userinfo" EntityType="mangerModel.userinfo" />
+          <EntitySet Name="Training" EntityType="mangerModel.Training" />
+        </EntityContainer>
+        <EntityType Name="department">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="departmentName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateTime" Type="DateTime" Precision="0" />
+          <Property Name="num" Type="Int32" />
+          <Property Name="states" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="userinfo">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Name="userID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userSex" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="userPhone" Type="Int32" />
+          <Property Name="userNum" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="usermingzu" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="userAderrs" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="userPhot" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Training">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="people" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="theme" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Training_Time" Type="DateTime" Precision="0" />
+          <Property Name="place" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="mangerModelStoreContainer" CdmEntityContainer="mangerEntities">
+          <EntitySetMapping Name="customer">
+            <EntityTypeMapping TypeName="mangerModel.customer">
+              <MappingFragment StoreEntitySet="customer">
+                <ScalarProperty Name="customerid" ColumnName="customerid" />
+                <ScalarProperty Name="companyname" ColumnName="companyname" />
+                <ScalarProperty Name="connectname" ColumnName="connectname" />
+                <ScalarProperty Name="addresss" ColumnName="addresss" />
+                <ScalarProperty Name="zipcode" ColumnName="zipcode" />
+                <ScalarProperty Name="telephone" ColumnName="telephone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="staffInfo">
+            <EntityTypeMapping TypeName="mangerModel.staffInfo">
+              <MappingFragment StoreEntitySet="staffInfo">
+                <ScalarProperty Name="empId" ColumnName="empId" />
+                <ScalarProperty Name="empName" ColumnName="empName" />
+                <ScalarProperty Name="empPosition" ColumnName="empPosition" />
+                <ScalarProperty Name="empHrId" ColumnName="empHrId" />
+                <ScalarProperty Name="empInDate" ColumnName="empInDate" />
+                <ScalarProperty Name="empSalary" ColumnName="empSalary" />
+                <ScalarProperty Name="empBonus" ColumnName="empBonus" />
+                <ScalarProperty Name="deptId" ColumnName="deptId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="userChecke">
+            <EntityTypeMapping TypeName="mangerModel.userChecke">
+              <MappingFragment StoreEntitySet="userChecke">
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="userLog" ColumnName="userLog" />
+                <ScalarProperty Name="userPwd" ColumnName="userPwd" />
+                <ScalarProperty Name="userType" ColumnName="userType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="department">
+            <EntityTypeMapping TypeName="mangerModel.department">
+              <MappingFragment StoreEntitySet="department">
+                <ScalarProperty Name="states" ColumnName="states" />
+                <ScalarProperty Name="num" ColumnName="num" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="departmentName" ColumnName="departmentName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="userinfo">
+            <EntityTypeMapping TypeName="mangerModel.userinfo">
+              <MappingFragment StoreEntitySet="userinfo">
+                <ScalarProperty Name="userPhot" ColumnName="userPhot" />
+                <ScalarProperty Name="userAderrs" ColumnName="userAderrs" />
+                <ScalarProperty Name="usermingzu" ColumnName="usermingzu" />
+                <ScalarProperty Name="userNum" ColumnName="userNum" />
+                <ScalarProperty Name="userPhone" ColumnName="userPhone" />
+                <ScalarProperty Name="userSex" ColumnName="userSex" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Training">
+            <EntityTypeMapping TypeName="mangerModel.Training">
+              <MappingFragment StoreEntitySet="Training">
+                <ScalarProperty Name="place" ColumnName="place" />
+                <ScalarProperty Name="Training_Time" ColumnName="Training_Time" />
+                <ScalarProperty Name="theme" ColumnName="theme" />
+                <ScalarProperty Name="people" ColumnName="people" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
