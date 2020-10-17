@@ -1,13 +1,14 @@
-﻿using System;
+﻿using MVC5.manger.Models;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using MVC5.manger.Models;
 using System.Web.Mvc;
+
+using MVC5.manger.App_Start;
 
 namespace MVC5.manger.Controllers
 {
-   
+    [ActionFilter(CheckLogin = true)]
+
     public class TrainingController : Controller
     {
 
@@ -35,11 +36,11 @@ namespace MVC5.manger.Controllers
             return Json(dic, JsonRequestBehavior.AllowGet);
         }
 
-       
+
         public ActionResult Del_Training(int id)
         {
             Dictionary<string, object> dic = new Dictionary<string, object>();
-            Training ids= db.Training.Find(id);
+            Training ids = db.Training.Find(id);
             Training idss = db.Training.Remove(ids);
             int num = db.SaveChanges();
             dic.Add("res", num > 0 ? true : false);
@@ -52,7 +53,8 @@ namespace MVC5.manger.Controllers
             return View();
         }
 
-        public ActionResult Add_Training(Training p) {
+        public ActionResult Add_Training(Training p)
+        {
             Dictionary<string, object> dic = new Dictionary<string, object>();
             db.Training.Add(p);
             int num = db.SaveChanges();

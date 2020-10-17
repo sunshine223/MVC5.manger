@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="mangerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="customer">
+    <Key>
+      <PropertyRef Name="customerid" />
+    </Key>
+    <Property Name="customerid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="companyname" Type="varchar" MaxLength="50" />
+    <Property Name="connectname" Type="varchar" MaxLength="50" />
+    <Property Name="addresss" Type="varchar" MaxLength="50" />
+    <Property Name="zipcode" Type="varchar" MaxLength="50" />
+    <Property Name="telephone" Type="int" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6013: 表/视图“manger.dbo.seller”未定义主键，并且无法推断有效的主键。已排除了此表/视图。若要使用实体，将需要检查您的架构、添加正确的键并取消对实体的注释。
+        <EntityType Name="seller">
+          <Property Name="saleid" Type="varchar" MaxLength="3" />
+          <Property Name="salename" Type="varchar" MaxLength="50" />
+          <Property Name="sex" Type="char" MaxLength="2" />
+          <Property Name="brithday" Type="datetime" />
+          <Property Name="hiredate" Type="datetime" />
+          <Property Name="addresss" Type="varchar" MaxLength="50" />
+          <Property Name="telephone" Type="varchar" MaxLength="43" />
+        </EntityType>-->
+  <EntityType Name="staffInfo">
+    <Key>
+      <PropertyRef Name="empId" />
+    </Key>
+    <Property Name="empId" Type="int" Nullable="false" />
+    <Property Name="empName" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="empPosition" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="empHrId" Type="int" />
+    <Property Name="empInDate" Type="date" Nullable="false" />
+    <Property Name="empSalary" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="empBonus" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="deptId" Type="int" />
+  </EntityType>
+  <EntityType Name="userinfo">
+    <Key>
+      <PropertyRef Name="userID" />
+    </Key>
+    <Property Name="userID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userName" Type="varchar" MaxLength="50" />
+    <Property Name="userSex" Type="char" MaxLength="2" />
+    <Property Name="userLog" Type="varchar" MaxLength="50" />
+    <Property Name="userPwd" Type="varchar" MaxLength="50" />
+    <Property Name="userPhone" Type="int" />
+    <Property Name="userNum" Type="varchar" MaxLength="100" />
+    <Property Name="usermingzu" Type="varchar" MaxLength="100" />
+    <Property Name="userAderrs" Type="varchar" MaxLength="100" />
+    <Property Name="userType" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityContainer Name="mangerModelStoreContainer">
+    <EntitySet Name="customer" EntityType="Self.customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="staffInfo" EntityType="Self.staffInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="userinfo" EntityType="Self.userinfo" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MES_KT_2020_0911Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="C_Cus_MES_To_MidTable">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BillNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="BillDate" Type="date" />
+          <Property Name="Auditor" Type="nvarchar" MaxLength="50" />
+          <Property Name="AuditDate" Type="datetime" />
+          <Property Name="RowNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Version" Type="nvarchar" MaxLength="50" />
+          <Property Name="Batch" Type="nvarchar" MaxLength="50" />
+          <Property Name="Qty" Type="nvarchar" MaxLength="50" />
+          <Property Name="Units" Type="nvarchar" MaxLength="50" />
+          <Property Name="ReactorCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="ValType" Type="nvarchar" MaxLength="50" />
+          <Property Name="ValHome" Type="nvarchar" MaxLength="50" />
+          <Property Name="ValDate" Type="datetime" />
+          <Property Name="ProDate" Type="datetime" />
+          <Property Name="FinishQty" Type="nvarchar" MaxLength="50" />
+          <Property Name="FinishValDate" Type="datetime" />
+          <Property Name="FinishProDate" Type="datetime" />
+          <Property Name="PalletizerArea" Type="nvarchar" MaxLength="50" />
+          <Property Name="PalletizerCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="PalletizerStartTime" Type="datetime" />
+          <Property Name="PalletizerEndTime" Type="datetime" />
+          <Property Name="PalletizerStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="iEESID" Type="bigint" />
+          <Property Name="dDateTime" Type="datetime" />
+          <Property Name="iDetectionStatus" Type="int" />
+        </EntityType>
+        <EntityContainer Name="MES_KT_2020_0911ModelStoreContainer">
+          <EntitySet Name="C_Cus_MES_To_MidTable" EntityType="Self.C_Cus_MES_To_MidTable" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MES_KT_2020_0911Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C_Cus_MES_To_MidTable">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BillNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BillDate" Type="DateTime" Precision="0" />
+          <Property Name="Auditor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AuditDate" Type="DateTime" Precision="3" />
+          <Property Name="RowNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Version" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Batch" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Qty" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Units" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ReactorCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ValType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ValHome" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ValDate" Type="DateTime" Precision="3" />
+          <Property Name="ProDate" Type="DateTime" Precision="3" />
+          <Property Name="FinishQty" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FinishValDate" Type="DateTime" Precision="3" />
+          <Property Name="FinishProDate" Type="DateTime" Precision="3" />
+          <Property Name="PalletizerArea" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PalletizerCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PalletizerStartTime" Type="DateTime" Precision="3" />
+          <Property Name="PalletizerEndTime" Type="DateTime" Precision="3" />
+          <Property Name="PalletizerStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="iEESID" Type="Int64" />
+          <Property Name="dDateTime" Type="DateTime" Precision="3" />
+          <Property Name="iDetectionStatus" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="MES_KT_2020_0911Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C_Cus_MES_To_MidTable" EntityType="Self.C_Cus_MES_To_MidTable" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MES_KT_2020_0911ModelStoreContainer" CdmEntityContainer="MES_KT_2020_0911Entities">
+          <EntitySetMapping Name="C_Cus_MES_To_MidTable">
+            <EntityTypeMapping TypeName="MES_KT_2020_0911Model.C_Cus_MES_To_MidTable">
+              <MappingFragment StoreEntitySet="C_Cus_MES_To_MidTable">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="BillNo" ColumnName="BillNo" />
+                <ScalarProperty Name="BillDate" ColumnName="BillDate" />
+                <ScalarProperty Name="Auditor" ColumnName="Auditor" />
+                <ScalarProperty Name="AuditDate" ColumnName="AuditDate" />
+                <ScalarProperty Name="RowNo" ColumnName="RowNo" />
+                <ScalarProperty Name="ProCode" ColumnName="ProCode" />
+                <ScalarProperty Name="ProName" ColumnName="ProName" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="Batch" ColumnName="Batch" />
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
+                <ScalarProperty Name="Units" ColumnName="Units" />
+                <ScalarProperty Name="ReactorCode" ColumnName="ReactorCode" />
+                <ScalarProperty Name="ValType" ColumnName="ValType" />
+                <ScalarProperty Name="ValHome" ColumnName="ValHome" />
+                <ScalarProperty Name="ValDate" ColumnName="ValDate" />
+                <ScalarProperty Name="ProDate" ColumnName="ProDate" />
+                <ScalarProperty Name="FinishQty" ColumnName="FinishQty" />
+                <ScalarProperty Name="FinishValDate" ColumnName="FinishValDate" />
+                <ScalarProperty Name="FinishProDate" ColumnName="FinishProDate" />
+                <ScalarProperty Name="PalletizerArea" ColumnName="PalletizerArea" />
+                <ScalarProperty Name="PalletizerCode" ColumnName="PalletizerCode" />
+                <ScalarProperty Name="PalletizerStartTime" ColumnName="PalletizerStartTime" />
+                <ScalarProperty Name="PalletizerEndTime" ColumnName="PalletizerEndTime" />
+                <ScalarProperty Name="PalletizerStatus" ColumnName="PalletizerStatus" />
+                <ScalarProperty Name="iEESID" ColumnName="iEESID" />
+                <ScalarProperty Name="dDateTime" ColumnName="dDateTime" />
+                <ScalarProperty Name="iDetectionStatus" ColumnName="iDetectionStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

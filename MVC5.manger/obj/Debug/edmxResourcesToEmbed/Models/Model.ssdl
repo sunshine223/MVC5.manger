@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="mangerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Checking">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="255" />
+    <Property Name="danhao" Type="varchar" MaxLength="255" />
+    <Property Name="style" Type="varchar" MaxLength="255" />
+    <Property Name="didian" Type="varchar" MaxLength="255" />
+    <Property Name="danjia" Type="varchar" MaxLength="255" />
+    <Property Name="shulu" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Checks">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="255" />
+    <Property Name="danhao" Type="varchar" MaxLength="255" />
+    <Property Name="style" Type="varchar" MaxLength="255" />
+    <Property Name="didian" Type="varchar" MaxLength="255" />
+    <Property Name="danjia" Type="varchar" MaxLength="255" />
+    <Property Name="shulu" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="customer">
+    <Key>
+      <PropertyRef Name="customerid" />
+    </Key>
+    <Property Name="customerid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="companyname" Type="varchar" MaxLength="50" />
+    <Property Name="connectname" Type="varchar" MaxLength="50" />
+    <Property Name="addresss" Type="varchar" MaxLength="50" />
+    <Property Name="zipcode" Type="varchar" MaxLength="50" />
+    <Property Name="telephone" Type="int" />
+  </EntityType>
+  <EntityType Name="department">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="departmentName" Type="varchar" MaxLength="50" />
+    <Property Name="CreateTime" Type="date" />
+    <Property Name="num" Type="int" />
+    <Property Name="states" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="mar">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Cats" Type="varchar" MaxLength="500" />
+    <Property Name="Name" Type="varchar" MaxLength="200" />
+    <Property Name="moneys" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="staffInfo">
+    <Key>
+      <PropertyRef Name="empId" />
+    </Key>
+    <Property Name="empId" Type="int" Nullable="false" />
+    <Property Name="empName" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="empPosition" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="empHrId" Type="int" />
+    <Property Name="empInDate" Type="date" Nullable="false" />
+    <Property Name="empSalary" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="empBonus" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="deptId" Type="int" />
+  </EntityType>
+  <EntityType Name="Training">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="people" Type="varchar" MaxLength="100" />
+    <Property Name="theme" Type="varchar" MaxLength="100" />
+    <Property Name="Training_Time" Type="date" />
+    <Property Name="place" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="userChecke">
+    <Key>
+      <PropertyRef Name="userID" />
+    </Key>
+    <Property Name="userID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userName" Type="varchar" MaxLength="50" />
+    <Property Name="userLog" Type="varchar" MaxLength="50" />
+    <Property Name="userPwd" Type="varchar" MaxLength="50" />
+    <Property Name="userType" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="userinfo">
+    <Key>
+      <PropertyRef Name="userID" />
+    </Key>
+    <Property Name="userID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userSex" Type="char" MaxLength="2" />
+    <Property Name="userPhone" Type="int" />
+    <Property Name="userNum" Type="varchar" MaxLength="100" />
+    <Property Name="usermingzu" Type="varchar" MaxLength="100" />
+    <Property Name="userAderrs" Type="varchar" MaxLength="100" />
+    <Property Name="userPhot" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityContainer Name="mangerModelStoreContainer">
+    <EntitySet Name="Checking" EntityType="Self.Checking" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Checks" EntityType="Self.Checks" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="customer" EntityType="Self.customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="department" EntityType="Self.department" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mar" EntityType="Self.mar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="staffInfo" EntityType="Self.staffInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Training" EntityType="Self.Training" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="userChecke" EntityType="Self.userChecke" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="userinfo" EntityType="Self.userinfo" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

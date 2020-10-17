@@ -1,0 +1,73 @@
+﻿
+@{
+    ViewBag.Title = "Magazine";
+}
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>文本溢出处理text-overflow</title>
+    <style type="text/css">
+        * {
+            margin: 0px;
+            padding: 0px;
+            border: 0px;
+        }
+
+        body {
+          
+            background-image: url('../../style/img/116201.gif');
+            background-repeat: no-repeat;
+            background-position: 100px 0px;
+            line-height: 28px;
+            background-color: #f3f3f3;
+        }
+
+        #text1 {
+            width: 405px;
+            height: 40px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: clip;
+        }
+
+        #text2 {
+            width: 405px;
+            height: 40px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        #box {
+            width: 405px;
+            margin-left: 280px;
+            margin-top: 150px;
+        }
+
+        #bottom {
+           
+           background-image: url('../../style/img/116202.png');
+            position: absolute;
+            bottom: 0px;
+            height: 30px;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <div id="text1">
+            当我跃入春水荡漾的河中，片刻的凉意之后便有了轻松舒适的感觉，好久没有如此酣畅淋漓！
+        </div>
+        <div id="text2">
+            当我跃入春水荡漾的河中，片刻的凉意之后便有了轻松舒适的感觉，好久没有如此酣畅淋漓！
+        </div>
+    </div>
+    <div id="bottom"></div>
+</body>
+</html>

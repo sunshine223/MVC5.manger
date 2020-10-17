@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="mangerModelStoreContainer" CdmEntityContainer="mangerEntities2">
+    <EntitySetMapping Name="customer">
+      <EntityTypeMapping TypeName="mangerModel.customer">
+        <MappingFragment StoreEntitySet="customer">
+          <ScalarProperty Name="customerid" ColumnName="customerid" />
+          <ScalarProperty Name="companyname" ColumnName="companyname" />
+          <ScalarProperty Name="connectname" ColumnName="connectname" />
+          <ScalarProperty Name="addresss" ColumnName="addresss" />
+          <ScalarProperty Name="zipcode" ColumnName="zipcode" />
+          <ScalarProperty Name="telephone" ColumnName="telephone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="staffInfo">
+      <EntityTypeMapping TypeName="mangerModel.staffInfo">
+        <MappingFragment StoreEntitySet="staffInfo">
+          <ScalarProperty Name="empId" ColumnName="empId" />
+          <ScalarProperty Name="empName" ColumnName="empName" />
+          <ScalarProperty Name="empPosition" ColumnName="empPosition" />
+          <ScalarProperty Name="empHrId" ColumnName="empHrId" />
+          <ScalarProperty Name="empInDate" ColumnName="empInDate" />
+          <ScalarProperty Name="empSalary" ColumnName="empSalary" />
+          <ScalarProperty Name="empBonus" ColumnName="empBonus" />
+          <ScalarProperty Name="deptId" ColumnName="deptId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="userinfo">
+      <EntityTypeMapping TypeName="mangerModel.userinfo">
+        <MappingFragment StoreEntitySet="userinfo">
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="userSex" ColumnName="userSex" />
+          <ScalarProperty Name="userLog" ColumnName="userLog" />
+          <ScalarProperty Name="userPwd" ColumnName="userPwd" />
+          <ScalarProperty Name="userPhone" ColumnName="userPhone" />
+          <ScalarProperty Name="userNum" ColumnName="userNum" />
+          <ScalarProperty Name="usermingzu" ColumnName="usermingzu" />
+          <ScalarProperty Name="userAderrs" ColumnName="userAderrs" />
+          <ScalarProperty Name="userType" ColumnName="userType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

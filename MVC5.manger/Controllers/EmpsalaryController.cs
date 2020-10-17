@@ -1,15 +1,19 @@
-﻿using System;
+﻿using HRMS.utils;
+using MVC5.manger.Models;
+using NPOI.XSSF.UserModel;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using HRMS.utils;
-using MVC5.manger.Models;
-using NPOI.XSSF.UserModel;
+
+using MVC5.manger.App_Start;
 
 namespace MVC5.manger.Controllers
 {
+    [ActionFilter(CheckLogin = true)]
     public class EmpsalaryController : Controller
     {
 
@@ -20,7 +24,7 @@ namespace MVC5.manger.Controllers
             return View();
         }
 
-        public ActionResult CheckSalary(string name, int curPage, int pageSize)
+        public ActionResult CheckSalary(string name, int curPage, int pageSize,int id)
         {
 
 
@@ -58,13 +62,13 @@ namespace MVC5.manger.Controllers
             return View();
         }
 
-        public ActionResult Init(string dName, int curPage, int pageSize)
+        public ActionResult Init(string dName, int curPage, int pageSize,int id)
         {
             Dictionary<string, object> dic = new Dictionary<string, object>();
             //计算起始下标
             int startIndex = (curPage - 1) * pageSize;
             //查询数据
-            List<department> list = db.department.Where(u => u.departmentName.Contains(dName)).OrderBy(u => u.ID).Skip(startIndex).Take(pageSize).ToList();
+            List<department> list = db.department.Where(u => u.departmentName.Contains(dName) || u.ID.Equals(id)).OrderBy(u => u.ID).Skip(startIndex).Take(pageSize).ToList();
             dic.Add("data", list);
             //查询总条数
             int rows = db.department.Where(u => u.departmentName.Contains(dName)).Count();
@@ -107,6 +111,7 @@ namespace MVC5.manger.Controllers
             int num = db.SaveChanges();
             dic.Add("res", num > 0 ? true : false);
             return Json(dic, JsonRequestBehavior.AllowGet);
+
         }
         //下载文件
         public FileContentResult DownloadExcel()
@@ -127,5 +132,36 @@ namespace MVC5.manger.Controllers
             byte[] bs = ms.ToArray();
             return File(bs, "application/vnd.ms-excel", System.DateTime.Now.Ticks + ".xls");
         }
+
+ 
+
+        //上传
+        public void UploadDept(HttpPostedFileBase file)
+        {
+            string flirname = Path.GetFileName(file.FileName);
+            string path = Server.MapPath("~/flies/") + flirname;
+            file.SaveAs(path);
+            DataTable dt = NPOIHelper.ExcelToDataTable(path, "sheet0", true);
+            List<department> list = new List<department>();
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                department dept = new department
+                {
+                    departmentName = dt.Rows[i][0].ToString(),
+                    CreateTime = Convert.ToDateTime(dt.Rows[i][1].ToString()),
+                    num = int.Parse(dt.Rows[i][2].ToString()),
+                    states = dt.Rows[i][3].ToString()
+                };
+                list.Add(dept);
+            }
+            for (int i = 0; i < list.Count; i++)
+            {
+                db.department.Add(list[i]);
+            }
+            db.SaveChanges();
+
+
+        }
+
     }
 }

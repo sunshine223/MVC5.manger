@@ -10,7 +10,7 @@ namespace HRMS.utils
 {
     public class ExportExcelUtil<T>
     {
-        public static XSSFWorkbook export(List<T> list, string[][] heads)
+        public static XSSFWorkbook export(List<T> list,string[][] heads)
         {
             //创建excel对象
             XSSFWorkbook xwb = new XSSFWorkbook();
@@ -22,22 +22,22 @@ namespace HRMS.utils
 
                 //创建表头
                 IRow titleRow = sheet.CreateRow(0);
-                for (int i = 0; i < heads.Length; i++)
+                for(int i = 0; i < heads.Length; i++)
                 {
                     titleRow.CreateCell(i).SetCellValue(heads[i][0]);
                 }
 
                 //创建数据
-                for (int x = 0; x < list.Count; x++)
+                for(int x = 0; x < list.Count; x++)
                 {
-                    IRow row = sheet.CreateRow(x + 1);
+                    IRow row = sheet.CreateRow(x+1);
 
                     PropertyInfo[] pis = list[x].GetType().GetProperties();
-                    for (int y = 0; y < pis.Length; y++)
+                    for(int y = 0; y < pis.Length; y++)
                     {
-                        for (int z = 0; z < heads.Length; z++)
+                        for(int z=0;z< heads.Length;z++)
                         {
-                            if (pis[y].Name == heads[z][1])
+                            if(pis[y].Name== heads[z][1])
                             {
                                 object obj = pis[y].GetValue(list[x]);
                                 string value = "";
@@ -52,7 +52,7 @@ namespace HRMS.utils
                 }
 
             }
-
+            
 
             return xwb;
         }

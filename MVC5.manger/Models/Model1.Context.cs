@@ -31,5 +31,8 @@ namespace MVC5.manger.Models
         public virtual DbSet<department> department { get; set; }
         public virtual DbSet<userinfo> userinfo { get; set; }
         public virtual DbSet<Training> Training { get; set; }
+        public virtual DbSet<Check> Checks { get; set; }
+        public virtual DbSet<Checking> Checkings { get; set; }
+        public virtual DbSet<mar> mars { get; set; }
     }
 }

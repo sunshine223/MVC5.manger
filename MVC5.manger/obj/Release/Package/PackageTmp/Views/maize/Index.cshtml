@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表格</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link href="~/022/common/layui/css/layui.css" rel="stylesheet" />
+    <link href="~/style/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/style/tables.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="box">
+        <div class="nav">
+            <div id="texts"><a>维护日志</a></div>
+            <div id="inputs">
+                <form id="salary">
+                    <span>
+                        <input type="text" class="searchs" style="border:1px solid #808080; height:30px;" placeholder="请输入姓名">
+                        <button type="button" class="btn btn-success" onclick="search()">搜索</button>
+                        <button type="button" class="btn btn-danger" onclick="del()">删除</button>
+                    </span>
+                </form>
+            </div>
+        </div>
+        <div class="tabls">
+            <table class="table table-bordered" id="tb"></table>
+
+        </div>
+    </div>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/bootstrap/js/moment-with-locales.min.js"></script>
+    <script src="~/Scripts/bootstrap/js/bootstrap-table.min.js"></script>
+    <script src="~/Scripts/bootstrap/js/bootstrap-table-zh-CN.js"></script>
+    <script src="~/Scripts/bootstrap/js/bootstrapValidator.min.js"></script>
+    <script src="~/Scripts/bootstrap/js/bootstrapValidator.min.zh_CN.js"></script>
+    <script src="~/Scripts/mar.js"></script>
+</body>
+</html>
+
+
+

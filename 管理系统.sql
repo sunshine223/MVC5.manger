@@ -135,3 +135,71 @@ insert into Training values('后勤经理','供给输出','2019-5-10','会议室')
 insert into Training values('董事长','公司发展问题','2019-1-10','行政室')
 go
 select * from Training
+go
+create table test(
+id int primary key ,
+people varchar(100),
+)
+go
+insert into test values('1','供给输出')
+insert into test values('2','公司发展问题')
+insert into test values('3','公司发展问题')
+insert into test values('4','公司发展问题')
+select * from test
+
+
+CREATE TABLE Checks (
+"id"  int primary key NOT NULL,
+"name"  varchar(255),
+"danhao"  varchar(255),
+"style"  varchar(255),
+"didian"  varchar(255),
+"danjia"  varchar(255),
+"shulu"  varchar(255),
+)
+go
+insert into Checks values('1','巡逻船1号','MJSA31568433519','2020-3-20','重庆码头','123','155')
+insert into Checks values('2','巡逻船2号','MJSA31568433519','2020-3-22','重庆码头','123','15')
+insert into Checks values('3','巡逻船3号','MJSA31568433519','2020-3-22','重庆码头','123','143')
+insert into Checks values('4','巡逻船4号','MJSA31568433519','2020-3-23','重庆码头','123','125')
+insert into Checks values('5','巡逻船5号','MJSA31568433519','2020-3-24','重庆码头','123','96')
+insert into Checks values('6','巡逻船6号','MJSA31568433519','2020-3-25','重庆码头','123','49')
+insert into Checks values('7','巡逻船7号','MJSA31364233519','2020-3-22','重庆码头','123','15')
+insert into Checks values('8','巡逻船8号','MJSA74138433519','2020-3-22','重庆码头','123','13')
+insert into Checks values('9','巡逻船9号','MJSA74123633519','2020-3-23','重庆码头','123','125')
+insert into Checks values('10','巡逻船10号','MJSA85230433519','2020-3-24','重庆码头','123','196')
+insert into Checks values('11','巡逻船11号','MJSA7856433519','2020-3-25','重庆码头','123','149')
+select * from Checks
+go
+CREATE TABLE Checking (
+"id"  int primary key NOT NULL,
+"name"  varchar(255),
+"danhao"  varchar(255),
+"style"  varchar(255),
+"didian"  varchar(255),
+"danjia"  varchar(255),
+"shulu"  varchar(255),
+)
+go
+insert into Checking values('1','巡逻船1号','MJSA31568433519','2020-3-20','重庆码头','长江游轮','0#柴油')
+insert into Checking values('2','巡逻船2号','MJSA31568433519','2020-3-22','重庆码头','长江游轮','15#航空柴油')
+insert into Checking values('3','巡逻船3号','MJSA31568433519','2020-3-22','重庆码头','长江游轮','0#柴油')
+insert into Checking values('4','巡逻船4号','MJSA31568433519','2020-3-23','重庆码头','长江游轮','15#航空柴油')
+insert into Checking values('5','巡逻船5号','MJSA31568433519','2020-3-24','重庆码头','长江游轮','0#柴油')
+insert into Checking values('6','巡逻船6号','MJSA31568433519','2020-3-25','重庆码头','长江游轮','15#航空柴油')
+insert into Checking values('7','巡逻船7号','MJSA31364233519','2020-3-22','重庆码头','长江游轮','0#柴油')
+insert into Checking values('8','巡逻船8号','MJSA74138433519','2020-3-22','重庆码头','长江游轮','15#航空柴油')
+insert into Checking values('9','巡逻船9号','MJSA74123633519','2020-3-23','重庆码头','长江游轮','0#柴油')
+insert into Checking values('10','巡逻船10号','MJSA85230433519','2020-3-24','重庆码头','长江游轮','15#航空柴油')
+insert into Checking values('11','巡逻船11号','MJSA7856433519','2020-3-25','重庆码头','长江游轮','0#柴油')
+select * from Checking
+go
+create table mar(
+Id int identity(1,1) primary key,
+Cats varchar(500),
+Name varchar(200),
+moneys varchar(200))
+go 
+insert into mar values('修复系统BUg','李达','1200元') 
+insert into mar values('修复系统BUg','李凯','1200元')
+insert into mar values('修复系统BUg','王梅','1200元')

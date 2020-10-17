@@ -1,8 +1,5 @@
-﻿using System;
+﻿using MVC5.manger.App_Start;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using MVC5.manger.App_Start;
 using System.Web.Mvc;
 
 namespace MVC5.manger.Controllers
@@ -15,8 +12,10 @@ namespace MVC5.manger.Controllers
         {
             return View();
         }
-        public ActionResult ClearSession() {
-            Dictionary<string, bool> dic =new Dictionary<string, bool>();
+
+        public ActionResult ClearSession()
+        {
+            Dictionary<string, bool> dic = new Dictionary<string, bool>();
             Session.Clear();
             dic.Add("res", true);
             return Json(dic);

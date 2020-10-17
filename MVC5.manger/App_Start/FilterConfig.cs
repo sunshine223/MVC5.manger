@@ -1,5 +1,4 @@
 ﻿using MVC5.manger.App_Start;
-using System.Web;
 using System.Web.Mvc;
 
 namespace MVC5.manger
@@ -12,5 +11,5 @@ namespace MVC5.manger
             filters.Add(new ActionFilter());
         }
     }
-   
+
 }

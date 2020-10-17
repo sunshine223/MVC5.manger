@@ -1,0 +1,178 @@
+﻿
+@{
+    ViewBag.Title = "Index1";
+}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="~/Scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/style/ace.min.css" rel="stylesheet" />
+    <link href="~/style/style.css" rel="stylesheet" />
+    <title>待确认订单</title>
+    <style>
+        body {
+            overflow-x: hidden !important;
+        }
+        #tb {
+            table-layout: fixed !important;
+            word-break: break-all !important;
+            word-wrap: break-word !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-content">
+        <!--待确认订单样式-->
+        <div class="d_Confirm_Order_style">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h3 class="header smaller lighter blue">执行订单</h3>
+                    <div class="table-header"></div>
+                    <div class="search_style">
+                        <div class="title_names">搜索查询</div>
+                        <ul class="search_content clearfix">
+                            <li><label class="lf">项目名称</label><input name="项目名称" id="names" type="text" class="text_add" /></li>
+                            <li><label class="lf">订单编号</label><input name="项目名称" id="danhao" type="text" class="text_add" /></li>
+                            <li><label class="lf">加油时间</label><input name="项目名称" id="time" type="text" class="text_add" /></li>
+                            <li style="width:90px;"><button id="btn_search" type="button" class="btn_search" onclick="search()">查询</button></li>
+                        </ul>
+                    </div>
+                 
+                        <table id="tb">
+                        </table>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/bootstrap.js?v=1.9"></script>
+    <script src="~/Scripts/bootstrap/js/moment-with-locales.min.js?v=1.9"></script>
+    <script src="~/Scripts/bootstrap/js/bootstrap-table.min.js?v=1.9"></script>
+    <script src="~/Scripts/bootstrap/js/bootstrap-table-zh-CN.js?v=1.9"></script>
+    <script src="~/Scripts/bootstrap/js/bootstrapValidator.min.js?v=1.9"></script>
+    <script src="~/Scripts/bootstrap/js/bootstrapValidator.min.zh_CN.js?v=1.9"></script>
+    <script>
+        function search() {
+            init();
+            $("#names").val().trim();
+
+        }
+        $(function () {
+            init();
+        });
+        function init() {
+            $('#tb').bootstrapTable("destroy");
+            // 初始化表格,动态从服务器加载数据
+            $("#tb").bootstrapTable({
+                method: "post",
+                contentType: "application/x-www-form-urlencoded",
+                url: "/Order_management/GetInfo", // 获取数据的地址
+                striped: true, // 表格显示条纹
+                pagination: true, // 启动分页
+                pageSize: 5, // 每页显示的记录数
+                pageNumber: 1, // 当前第几页
+                minimumCountColumns: 1, // 最少允许的列数
+                clickToSelect: true, //是否启用点击选中行
+                pageList: [5, 10, 25], // 记录数可选列表
+                search: false, // 是否启用查询
+                sidePagination: "server", // 表示服务端请求
+                // 设置为undefined可以获取pageNumber，pageSize，searchText，sortName，sortOrder
+                // 设置为limit可以获取limit, offset, search, sort, order
+                queryParamsType: "undefined",
+                queryParams: function queryParams(params) { // 设置查询参数
+                    var param = {
+                        curPage: params.pageNumber,
+                        pageSize: params.pageSize,
+                        dName: $("#names").val().trim(),
+                        danhao: $("#danhao").val().trim(),
+                        time: $("#time").val().trim(),
+
+                    };
+                    return param;
+                },
+                columns: [{
+                    checkbox: true,
+                  
+                }, {
+                        title: '序号',//标题  可不加
+                        align: "center",
+                        valign: "middle",
+                    formatter: function (value, row, index) {
+                        return index + 1;
+                    }
+                }, {
+                    field: 'name',
+                        title: '项目名称',
+                     
+                        align: "center",
+                        valign: "middle",
+                },
+                {
+                    field: 'danhao',
+                    title: '订单编号',
+                    align: "center",
+                    valign: "middle",
+                  
+                },
+                {
+                    field: 'style',
+                    title: '预计加油时间',
+                    align: "center",
+                    valign: "middle",
+                  
+                }, {
+                    field: 'didian',
+                    title: '加油地点',
+                    align: "center",
+                    valign: "middle",
+                 
+                }, {
+                    field: 'danjia',
+                    title: '船名',
+                    align: "center",
+                    valign: "middle",
+                  
+                }
+                    , {
+                    field: 'shulu',
+                        title: '品种',
+                        align: "center",
+                        valign: "middle",
+                      
+                }],
+                onLoadError: function () { // 加载失败时执行
+                    console.log("请求失败！");
+                },
+                responseHandler: function (res) {
+                    return {
+                        "total": res.rows,// 总页数
+                        "rows": res.data || []
+                        // 数据
+                    };
+                }
+            });
+
+        }
+
+        //日期格式化
+        function dateFormat(dateStr) {
+            if (!dateStr) {
+                return;
+            }
+            var reg = /\d+/g;
+            var dateNum = parseInt(dateStr.match(reg).join(""));
+            var date = new Date(dateNum);
+            var year = date.getFullYear();
+            var month = date.getMonth() + 1;
+            var day = date.getMonth();
+            var hour = date.getHours();
+            var min = date.getMinutes();
+            var sec = date.getSeconds();
+            return year + "-" + month + "-" + day + " " + hour + ":" + min + ":" + sec;
+        }
+    </script>
+</body>
+</html>

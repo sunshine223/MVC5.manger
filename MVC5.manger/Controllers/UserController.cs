@@ -1,12 +1,13 @@
 ﻿using MVC5.manger.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
+
+using MVC5.manger.App_Start;
 
 namespace MVC5.manger.Controllers
 {
+    [ActionFilter(CheckLogin = true)]
     public class UserController : Controller
     {
         public mangerEntities db = new mangerEntities();
@@ -38,7 +39,7 @@ namespace MVC5.manger.Controllers
         {
             Dictionary<string, object> dic = new Dictionary<string, object>();
             userChecke ids = db.userChecke.Find(id);
-            userChecke idss = db.userChecke.Remove(ids);
+            _ = db.userChecke.Remove(ids);
             int num = db.SaveChanges();
             dic.Add("res", num > 0 ? true : false);
             return Json(dic, JsonRequestBehavior.AllowGet);

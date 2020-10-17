@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="mangerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="customer">
+    <Key>
+      <PropertyRef Name="customerid" />
+    </Key>
+    <Property Name="customerid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="companyname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="connectname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="addresss" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="zipcode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="telephone" Type="Int32" />
+  </EntityType>
+  <EntityType Name="staffInfo">
+    <Key>
+      <PropertyRef Name="empId" />
+    </Key>
+    <Property Name="empId" Type="Int32" Nullable="false" />
+    <Property Name="empName" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="empPosition" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="empHrId" Type="Int32" />
+    <Property Name="empInDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="empSalary" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="empBonus" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="deptId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="userChecke">
+    <Key>
+      <PropertyRef Name="userID" />
+    </Key>
+    <Property Name="userID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="userLog" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="userPwd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="userType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="mangerEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="customer" EntityType="Self.customer" />
+    <EntitySet Name="staffInfo" EntityType="Self.staffInfo" />
+    <EntitySet Name="userChecke" EntityType="Self.userChecke" />
+    <EntitySet Name="department" EntityType="mangerModel.department" />
+    <EntitySet Name="userinfo" EntityType="mangerModel.userinfo" />
+    <EntitySet Name="Training" EntityType="mangerModel.Training" />
+    <EntitySet Name="Checks" EntityType="mangerModel.Check" />
+    <EntitySet Name="Checkings" EntityType="mangerModel.Checking" />
+    <EntitySet Name="mars" EntityType="mangerModel.mar" />
+  </EntityContainer>
+  <EntityType Name="department">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="departmentName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreateTime" Type="DateTime" Precision="0" />
+    <Property Name="num" Type="Int32" />
+    <Property Name="states" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="userinfo">
+    <Key>
+      <PropertyRef Name="userID" />
+    </Key>
+    <Property Name="userID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userSex" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="userPhone" Type="Int32" />
+    <Property Name="userNum" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="usermingzu" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="userAderrs" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="userPhot" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Training">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="people" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="theme" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Training_Time" Type="DateTime" Precision="0" />
+    <Property Name="place" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Check">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="danhao" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="style" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="didian" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="danjia" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="shulu" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Checking">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="danhao" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="style" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="didian" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="danjia" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="shulu" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="mar">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Cats" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="moneys" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

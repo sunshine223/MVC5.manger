@@ -1,6 +1,6 @@
 ﻿
 $(function () {
-
+   
     init();
 });
 
@@ -25,8 +25,8 @@ function init() {
         queryParamsType: "undefined",
         queryParams: function queryParams(params) { // 设置查询参数
             var param = {
-                curPage: params.pageNumber,
-                pageSize: params.pageSize,
+                curPage: params.pageNumber,// 当前第几页
+                pageSize: params.pageSize,// 每页显示的记录数
                 dName: $(".searchs").val() || ""
             };
             return param;
@@ -38,23 +38,26 @@ function init() {
             formatter: function (value, row, index) {
                 return index + 1;
             }
-        },
-        {
-            field: 'departmentName',
-            title: '部门名称'
-        },
-        {
-            field: 'CreateTime',
-            title: '创建时间',
-            formatter: function (row) {
-                return dateFormat(row);
-            }
+        }, {
+                field: 'ID',
+            title: '部门ID'
+            },
+            {
+                field: 'departmentName',
+                title: '部门名称'
+            },
+            {
+                field: 'CreateTime',
+                title: '创建时间',
+                formatter: function (row) {
+                    return dateFormat(row);
+                }
         }, {
             field: 'num',
             title: '部门人数',
 
         }, {
-            field: 'states',
+                field: 'states',
             title: '备注'
         }],
         onLoadError: function () { // 加载失败时执行
@@ -160,33 +163,36 @@ function updt() {
     });
     //打开模态框
     $("#hides").attr("style", "display: none");
-
+  
     $("#ID").val("用户ID自增，无需填写");
     $("#titels").text("修改部门信息");
     $("#myModal").modal("show");
 }
 
-
 function saveMenu() {
     var Url = "";
-    var parmas = "";
+    var parmas ="";
     var departmentName = $("#ID").val();
-    if (departmentName == "") {
+    if (departmentName == "")
+    {
         parmas = $("#menuForm").serialize();
         Url = "/Empsalary/Add_Department";
     }
-    else {
+    else
+    {
         parmas = $("#menuForm").serialize();
         Url = "/Empsalary/Update_Department";
     }
+ 
     $.ajax({
-        url: Url,
+        url:Url,
         dataType: "json",
         type: "post",
         data: parmas,
         success: function (res) {
             $(':input', '#menuForm').val("");
             alert("操作成功！");
+         
             cancel();
         },
         error: function () {
@@ -196,16 +202,38 @@ function saveMenu() {
     });
 }
 
-//上传文件
-function uploadExcel() {
-    //打开模态框
+function upload() {
     $("#myModal1").modal("show");
+}
+//上传文件
+function uploadExcel(){
+  
+    var file = $("#uploadDeptExcel")[0].files[0];
+    var formData = new FormData();
+    formData.append("file", file)
+    $.ajax({
+        url: '/Empsalary/UploadDept',
+        dataType: 'json',
+        type: 'POST',
+        async: false,
+        data: formData,
+        processData: false, // 使数据不做处理 
+        contentType: false, // 不要设置Content-Type请求头 
+        success: function (data) {
+            if (data.status == 'True') {
+                alert("上传成功！");
+            }
+        },
+        error: function (response) {
+            console.log(response);
+        }
+    });
 }
 
 //取消
 function cancel() {
     //隐藏模态框
-    $("#myModal").modal("hide");
+    $("#myModal1").modal("hide");
     $(':input', '#menuForm').val("");
     init();
 }

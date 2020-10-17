@@ -1,0 +1,33 @@
+﻿* {
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    list-style-type: none;
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+    color: #d9d0d0;
+    background-image: url('img/register.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+}
+
+#box h2 {
+margin-left:27%;
+
+}
+input {
+    background-color:none;
+    opacity:0.5;
+}
+select {
+    background-color: none;
+    opacity: 0.5;
+}
+
+#box {
+    margin-top: 8%;
+}

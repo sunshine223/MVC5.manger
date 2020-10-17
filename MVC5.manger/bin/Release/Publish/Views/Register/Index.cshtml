@@ -1,0 +1,75 @@
+﻿
+@{
+    ViewBag.Title = "Register";
+}
+
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户注册界面</title>
+    <link href="~/style/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/style/bootstrap/css/bootstrapValidator.min.css" rel="stylesheet" />
+    <link href="~/style/Register.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container-fluid" id="box">
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-4">
+                <h2>用户注册</h2>
+                <form class="form-horizontal" role="form" id="registeForm">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">登录名</label>
+                        <div class="col-sm-5">
+                            <input class="form-control" name="userLog" id="userLog" placeholder="登录名" />
+                        </div>
+                    </div>
+                
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">用户名</label>
+                            <div class="col-sm-5">
+                                <input class="form-control" name="userName" id="userName" placeholder="用户名" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">用户密码</label>
+                            <div class="col-sm-5">
+                                <input class="form-control" name="userPwd" type="password" id="userPwd" placeholder="用户密码" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="userMuneLabel" class="col-sm-2 control-label">用户角色</label>
+                            <div class="col-sm-5">
+                                <select name="userType" id="userType" class="form-control">
+                                    <option value="经理">经理</option>
+                                    <option value="董事长">董事长</option>
+                                    <option value="会计">会计</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="button" class="btn btn-success" onclick="register()">注册</button>
+                                <button type="button" class="btn btn-danger" style="margin-left:140px;" onclick="cancel()">取消</button>
+                            </div>
+                        </div>
+
+                </form>
+            </div>
+        </div>
+   
+        </div>
+
+
+
+<script src="~/Scripts/bootstrap/js/jquery.min.js"></script>
+<script src="~/Scripts/bootstrap/js/bootstrap.min.js"></script>
+<script src="~/Scripts/bootstrap/js/bootstrapValidator.min.js"></script>
+<script src="~/Scripts/bootstrap/js/bootstrapValidator.min.zh_CN.js"></script>
+<script src="~/Scripts/data/Register.js"></script>
+</body>
+</html>
+

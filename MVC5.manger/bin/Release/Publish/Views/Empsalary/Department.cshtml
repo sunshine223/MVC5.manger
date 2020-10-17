@@ -1,0 +1,126 @@
+﻿
+@{
+    ViewBag.Title = "Bumen";
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表格</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+
+    <link href="~/style/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/style/tables.css" rel="stylesheet" />
+    <link href="~/022/common/layui/css/layui.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="box">
+        <div class="nav">
+            <div id="texts"><a>部门管理</a></div>
+            <div id="inputs">
+                <input type="text" class="searchs" style="border:1px solid #808080; height:30px;" placeholder="请输入部门名称">
+                <span>
+                    <button type="button" class="btn btn-success" onclick="search()">搜索</button>
+                    <button type="button" class="btn btn-info" onclick="add()">添加</button>
+                    <button type="button" class="btn btn-warning" onclick="updt()">修改</button>
+                    <button type="button" class="btn btn-danger" onclick="del()">删除</button>
+                    <button type="button" style="margin-left:175px; margin-top:5px; " class="btn btn-info" onclick="uploadExcel()">上传</button>
+                    <button type="button" class="btn btn-info" style="margin-top:5px; "><a href="/Empsalary/DownloadExcel" style="text-decoration:none ;color:#fff">下载</a></button>
+                </span>
+            </div>
+        </div>
+        <div class="tabls">
+            <table class="table table-bordered" id="tb"></table>
+        </div>
+        @*添加，修改模态框*@
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-hidden="true" aria-labelledby="myModalLabel">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel" style="text-align:center"><a id="titels">添加部门信息</a></h4>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-horizontal" role="form" id="menuForm">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">部门ID</label>
+                                <div class="col-sm-10">
+                                    <input class="layui-input layui-disabled" name="ID" id="ID" readonly="" value="无需填写，自增" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">部门名称</label>
+                                <div class="col-sm-10">
+                                    <input class="layui-input layui-disabled" id="departmentName" name="departmentName" />
+                                </div>
+                            </div>
+                            <div class="form-group" id="hides">
+                                <label class="col-sm-2 control-label">创建时间</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" id="CreateTime" name="CreateTime" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">部门人数</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" name="num" id="num" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">备注</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" name="states" id="states" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" onclick="cancel()">取消</button>
+                        <button type="button" class="btn btn-primary" onclick="saveMenu()">保存</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @*上传，下载模态框*@
+        <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-hidden="true" aria-labelledby="myModalLabel">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel" style="text-align:center"><a id="titels">上传部门信息</a></h4>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-horizontal" role="form" id="menuForm">
+                            <div class="form-group">
+                                选择文件 <input type="file" id="files" style="margin-left:50px;" />
+
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" onclick="cancel()">取消</button>
+                        <button type="button" class="btn btn-primary" onclick="saveMenu()">上传</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/bootstrap/js/moment-with-locales.min.js"></script>
+    <script src="~/Scripts/bootstrap/js/bootstrap-table.min.js"></script>
+    <script src="~/Scripts/bootstrap/js/bootstrap-table-zh-CN.js"></script>
+    <script src="~/Scripts/bootstrap/js/bootstrapValidator.min.js"></script>
+    <script src="~/Scripts/bootstrap/js/bootstrapValidator.min.zh_CN.js"></script>
+    <script src="~/Scripts/data/Department.js"></script>
+</body>
+</html>
+

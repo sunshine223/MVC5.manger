@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="mangerModelStoreContainer" CdmEntityContainer="mangerEntities">
+    <EntitySetMapping Name="customer">
+      <EntityTypeMapping TypeName="mangerModel.customer">
+        <MappingFragment StoreEntitySet="customer">
+          <ScalarProperty Name="customerid" ColumnName="customerid" />
+          <ScalarProperty Name="companyname" ColumnName="companyname" />
+          <ScalarProperty Name="connectname" ColumnName="connectname" />
+          <ScalarProperty Name="addresss" ColumnName="addresss" />
+          <ScalarProperty Name="zipcode" ColumnName="zipcode" />
+          <ScalarProperty Name="telephone" ColumnName="telephone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="staffInfo">
+      <EntityTypeMapping TypeName="mangerModel.staffInfo">
+        <MappingFragment StoreEntitySet="staffInfo">
+          <ScalarProperty Name="empId" ColumnName="empId" />
+          <ScalarProperty Name="empName" ColumnName="empName" />
+          <ScalarProperty Name="empPosition" ColumnName="empPosition" />
+          <ScalarProperty Name="empHrId" ColumnName="empHrId" />
+          <ScalarProperty Name="empInDate" ColumnName="empInDate" />
+          <ScalarProperty Name="empSalary" ColumnName="empSalary" />
+          <ScalarProperty Name="empBonus" ColumnName="empBonus" />
+          <ScalarProperty Name="deptId" ColumnName="deptId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="userChecke">
+      <EntityTypeMapping TypeName="mangerModel.userChecke">
+        <MappingFragment StoreEntitySet="userChecke">
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="userLog" ColumnName="userLog" />
+          <ScalarProperty Name="userPwd" ColumnName="userPwd" />
+          <ScalarProperty Name="userType" ColumnName="userType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="department">
+      <EntityTypeMapping TypeName="mangerModel.department">
+        <MappingFragment StoreEntitySet="department">
+          <ScalarProperty Name="states" ColumnName="states" />
+          <ScalarProperty Name="num" ColumnName="num" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="departmentName" ColumnName="departmentName" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="userinfo">
+      <EntityTypeMapping TypeName="mangerModel.userinfo">
+        <MappingFragment StoreEntitySet="userinfo">
+          <ScalarProperty Name="userPhot" ColumnName="userPhot" />
+          <ScalarProperty Name="userAderrs" ColumnName="userAderrs" />
+          <ScalarProperty Name="usermingzu" ColumnName="usermingzu" />
+          <ScalarProperty Name="userNum" ColumnName="userNum" />
+          <ScalarProperty Name="userPhone" ColumnName="userPhone" />
+          <ScalarProperty Name="userSex" ColumnName="userSex" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Training">
+      <EntityTypeMapping TypeName="mangerModel.Training">
+        <MappingFragment StoreEntitySet="Training">
+          <ScalarProperty Name="place" ColumnName="place" />
+          <ScalarProperty Name="Training_Time" ColumnName="Training_Time" />
+          <ScalarProperty Name="theme" ColumnName="theme" />
+          <ScalarProperty Name="people" ColumnName="people" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Checks">
+      <EntityTypeMapping TypeName="mangerModel.Check">
+        <MappingFragment StoreEntitySet="Checks">
+          <ScalarProperty Name="shulu" ColumnName="shulu" />
+          <ScalarProperty Name="danjia" ColumnName="danjia" />
+          <ScalarProperty Name="didian" ColumnName="didian" />
+          <ScalarProperty Name="style" ColumnName="style" />
+          <ScalarProperty Name="danhao" ColumnName="danhao" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Checkings">
+      <EntityTypeMapping TypeName="mangerModel.Checking">
+        <MappingFragment StoreEntitySet="Checking">
+          <ScalarProperty Name="shulu" ColumnName="shulu" />
+          <ScalarProperty Name="danjia" ColumnName="danjia" />
+          <ScalarProperty Name="didian" ColumnName="didian" />
+          <ScalarProperty Name="style" ColumnName="style" />
+          <ScalarProperty Name="danhao" ColumnName="danhao" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mars">
+      <EntityTypeMapping TypeName="mangerModel.mar">
+        <MappingFragment StoreEntitySet="mar">
+          <ScalarProperty Name="moneys" ColumnName="moneys" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Cats" ColumnName="Cats" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

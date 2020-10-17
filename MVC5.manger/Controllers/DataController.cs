@@ -1,21 +1,27 @@
 ﻿
+using MVC5.manger.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using MVC5.manger.Models;
+
+using MVC5.manger.App_Start;
 
 namespace MVC5.manger.Controllers
 {
+    [ActionFilter(CheckLogin = true)]
     public class DataController : Controller
     {
         // GET: data
         public mangerEntities db = new mangerEntities();
         public ActionResult Index()
         {
+
             return View();
         }
+
+
         public ActionResult Check(string eName)
         {
             var info = (from a in db.userChecke
@@ -86,14 +92,11 @@ namespace MVC5.manger.Controllers
         //删除
         public ActionResult Del(int empId)
         {
-
+            Dictionary<string, bool> dic = new Dictionary<string, bool>();
             staffInfo id = db.staffInfo.Find(empId);
             staffInfo ids = db.staffInfo.Remove(id);
             db.SaveChanges();
-            Dictionary<string, bool> dic = new Dictionary<string, bool>
-            {
-                { "res", ids == null ? false : true }
-            };
+            dic.Add("res", ids != null);
             return Json(dic);
         }
 
@@ -102,6 +105,7 @@ namespace MVC5.manger.Controllers
         //根据id查询数据
         public ActionResult SelectDEL(int id)
         {
+
             var tbs = from a in db.staffInfo
                       where a.empId == id
                       select new
@@ -115,7 +119,9 @@ namespace MVC5.manger.Controllers
                           a.empBonus,
                           a.deptId,
                       };
-            return Json(tbs, JsonRequestBehavior.AllowGet);
+
+            var td = db.staffInfo.Where(u => u.empId.Equals(id)).ToList();
+            return Json(td, JsonRequestBehavior.AllowGet);
         }
         //保存修改
         public ActionResult Updet(staffInfo p)
@@ -128,7 +134,7 @@ namespace MVC5.manger.Controllers
             info.empSalary = p.empSalary;
             info.deptId = p.deptId;
             int num = db.SaveChanges();
-            dic.Add("res", num > 0 ? false : true);
+            dic.Add("res", num <= 0);
             return Json(dic);
         }
         public ActionResult NoFind()
@@ -139,9 +145,11 @@ namespace MVC5.manger.Controllers
         {
             return View();
         }
+
         //修改个人信息
         public ActionResult UpdetProsens()
         {
+
             return View();
         }
         public ActionResult UpdetProsen(string names)
@@ -152,14 +160,14 @@ namespace MVC5.manger.Controllers
                         select new
                         {
                             a.userID,
-                            a.userName,
-                            d.userSex,
-                            a.userLog,
-                            d.userPhone,
+                            userName = a.userName,
+                            userSex = d.userSex,
+                            userLog = a.userLog,
+                            userPhone = d.userPhone,
                             d.userNum,
-                            d.usermingzu,
-                            d.userAderrs,
-                            a.userType,
+                            usermingzu = d.usermingzu,
+                            userAderrs = d.userAderrs,
+                            userType = a.userType,
                         }).ToList();
             return Json(info, JsonRequestBehavior.AllowGet);
         }
@@ -173,6 +181,7 @@ namespace MVC5.manger.Controllers
             int num = db.SaveChanges();
             dic.Add("res", num > 0 ? false : true);
             return Json(dic);
+
         }
 
         //修改密码
@@ -191,7 +200,7 @@ namespace MVC5.manger.Controllers
             var info = db.userChecke.Find(b.userID);
             info.userPwd = b.userPwd;
             int num = db.SaveChanges();
-            dic.Add("res", num > 0 ? false : true);
+            dic.Add("res", num <= 0);
             return Json(dic);
         }
     }

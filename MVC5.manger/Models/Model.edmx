@@ -5,6 +5,30 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="mangerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Checking">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="255" />
+          <Property Name="danhao" Type="varchar" MaxLength="255" />
+          <Property Name="style" Type="varchar" MaxLength="255" />
+          <Property Name="didian" Type="varchar" MaxLength="255" />
+          <Property Name="danjia" Type="varchar" MaxLength="255" />
+          <Property Name="shulu" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Checks">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="255" />
+          <Property Name="danhao" Type="varchar" MaxLength="255" />
+          <Property Name="style" Type="varchar" MaxLength="255" />
+          <Property Name="didian" Type="varchar" MaxLength="255" />
+          <Property Name="danjia" Type="varchar" MaxLength="255" />
+          <Property Name="shulu" Type="varchar" MaxLength="255" />
+        </EntityType>
         <EntityType Name="customer">
           <Key>
             <PropertyRef Name="customerid" />
@@ -26,17 +50,15 @@
           <Property Name="num" Type="int" />
           <Property Name="states" Type="varchar" MaxLength="50" />
         </EntityType>
-        <!--生成过程中发现错误:
-警告 6013: 表/视图“manger.dbo.seller”未定义主键，并且无法推断有效的主键。已排除了此表/视图。若要使用实体，将需要检查您的架构、添加正确的键并取消对实体的注释。
-        <EntityType Name="seller">
-          <Property Name="saleid" Type="varchar" MaxLength="3" />
-          <Property Name="salename" Type="varchar" MaxLength="50" />
-          <Property Name="sex" Type="char" MaxLength="2" />
-          <Property Name="brithday" Type="datetime" />
-          <Property Name="hiredate" Type="datetime" />
-          <Property Name="addresss" Type="varchar" MaxLength="50" />
-          <Property Name="telephone" Type="varchar" MaxLength="43" />
-        </EntityType>-->
+        <EntityType Name="mar">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Cats" Type="varchar" MaxLength="500" />
+          <Property Name="Name" Type="varchar" MaxLength="200" />
+          <Property Name="moneys" Type="varchar" MaxLength="200" />
+        </EntityType>
         <EntityType Name="staffInfo">
           <Key>
             <PropertyRef Name="empId" />
@@ -83,8 +105,11 @@
           <Property Name="userPhot" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityContainer Name="mangerModelStoreContainer">
+          <EntitySet Name="Checking" EntityType="Self.Checking" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Checks" EntityType="Self.Checks" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="customer" EntityType="Self.customer" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="department" EntityType="Self.department" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="mar" EntityType="Self.mar" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="staffInfo" EntityType="Self.staffInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Training" EntityType="Self.Training" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="userChecke" EntityType="Self.userChecke" Schema="dbo" store:Type="Tables" />
@@ -135,6 +160,9 @@
           <EntitySet Name="department" EntityType="mangerModel.department" />
           <EntitySet Name="userinfo" EntityType="mangerModel.userinfo" />
           <EntitySet Name="Training" EntityType="mangerModel.Training" />
+          <EntitySet Name="Checks" EntityType="mangerModel.Check" />
+          <EntitySet Name="Checkings" EntityType="mangerModel.Checking" />
+          <EntitySet Name="mars" EntityType="mangerModel.mar" />
         </EntityContainer>
         <EntityType Name="department">
           <Key>
@@ -167,6 +195,39 @@
           <Property Name="theme" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Training_Time" Type="DateTime" Precision="0" />
           <Property Name="place" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Check">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="danhao" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="style" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="didian" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="danjia" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="shulu" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Checking">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="danhao" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="style" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="didian" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="danjia" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="shulu" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="mar">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Cats" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="moneys" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -246,6 +307,42 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Checks">
+            <EntityTypeMapping TypeName="mangerModel.Check">
+              <MappingFragment StoreEntitySet="Checks">
+                <ScalarProperty Name="shulu" ColumnName="shulu" />
+                <ScalarProperty Name="danjia" ColumnName="danjia" />
+                <ScalarProperty Name="didian" ColumnName="didian" />
+                <ScalarProperty Name="style" ColumnName="style" />
+                <ScalarProperty Name="danhao" ColumnName="danhao" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Checkings">
+            <EntityTypeMapping TypeName="mangerModel.Checking">
+              <MappingFragment StoreEntitySet="Checking">
+                <ScalarProperty Name="shulu" ColumnName="shulu" />
+                <ScalarProperty Name="danjia" ColumnName="danjia" />
+                <ScalarProperty Name="didian" ColumnName="didian" />
+                <ScalarProperty Name="style" ColumnName="style" />
+                <ScalarProperty Name="danhao" ColumnName="danhao" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mars">
+            <EntityTypeMapping TypeName="mangerModel.mar">
+              <MappingFragment StoreEntitySet="mar">
+                <ScalarProperty Name="moneys" ColumnName="moneys" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Cats" ColumnName="Cats" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -260,7 +357,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="无" />

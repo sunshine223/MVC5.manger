@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="sunshineModelStoreContainer" CdmEntityContainer="sunshineEntities">
+    <EntitySetMapping Name="Class">
+      <EntityTypeMapping TypeName="sunshineModel.Class">
+        <MappingFragment StoreEntitySet="Class">
+          <ScalarProperty Name="classid" ColumnName="classid" />
+          <ScalarProperty Name="className" ColumnName="className" />
+          <ScalarProperty Name="classSum" ColumnName="classSum" />
+          <ScalarProperty Name="classTeater" ColumnName="classTeater" />
+          <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Elesson">
+      <EntityTypeMapping TypeName="sunshineModel.Elesson">
+        <MappingFragment StoreEntitySet="Elesson">
+          <ScalarProperty Name="eId" ColumnName="eId" />
+          <ScalarProperty Name="eSubject" ColumnName="eSubject" />
+          <ScalarProperty Name="eName" ColumnName="eName" />
+          <ScalarProperty Name="studentId" ColumnName="studentId" />
+          <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Grade">
+      <EntityTypeMapping TypeName="sunshineModel.Grade">
+        <MappingFragment StoreEntitySet="Grade">
+          <ScalarProperty Name="gId" ColumnName="gId" />
+          <ScalarProperty Name="className" ColumnName="className" />
+          <ScalarProperty Name="Class" ColumnName="Class" />
+          <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="info">
+      <EntityTypeMapping TypeName="sunshineModel.info">
+        <MappingFragment StoreEntitySet="info">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="pwd" ColumnName="pwd" />
+          <ScalarProperty Name="states" ColumnName="states" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="menu">
+      <EntityTypeMapping TypeName="sunshineModel.menu">
+        <MappingFragment StoreEntitySet="menu">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="menuName" ColumnName="menuName" />
+          <ScalarProperty Name="menuType" ColumnName="menuType" />
+          <ScalarProperty Name="menuFatherId" ColumnName="menuFatherId" />
+          <ScalarProperty Name="userRole" ColumnName="userRole" />
+          <ScalarProperty Name="states" ColumnName="states" />
+          <ScalarProperty Name="hasChild" ColumnName="hasChild" />
+          <ScalarProperty Name="url" ColumnName="url" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="nianji">
+      <EntityTypeMapping TypeName="sunshineModel.nianji">
+        <MappingFragment StoreEntitySet="nianji">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="年级名称" ColumnName="年级名称" />
+          <ScalarProperty Name="年级主任" ColumnName="年级主任" />
+          <ScalarProperty Name="教研室主任" ColumnName="教研室主任" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="profession">
+      <EntityTypeMapping TypeName="sunshineModel.profession">
+        <MappingFragment StoreEntitySet="profession">
+          <ScalarProperty Name="cId" ColumnName="cId" />
+          <ScalarProperty Name="profession1" ColumnName="profession" />
+          <ScalarProperty Name="eName" ColumnName="eName" />
+          <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="student">
+      <EntityTypeMapping TypeName="sunshineModel.student">
+        <MappingFragment StoreEntitySet="student">
+          <ScalarProperty Name="studentourid" ColumnName="studentourid" />
+          <ScalarProperty Name="eName" ColumnName="eName" />
+          <ScalarProperty Name="studentId" ColumnName="studentId" />
+          <ScalarProperty Name="collegeId" ColumnName="collegeId" />
+          <ScalarProperty Name="cId" ColumnName="cId" />
+          <ScalarProperty Name="gId" ColumnName="gId" />
+          <ScalarProperty Name="Classid" ColumnName="Classid" />
+          <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="subjects">
+      <EntityTypeMapping TypeName="sunshineModel.subjects">
+        <MappingFragment StoreEntitySet="subjects">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="科目名称" ColumnName="科目名称" />
+          <ScalarProperty Name="专业讲师" ColumnName="专业讲师" />
+          <ScalarProperty Name="所属院系" ColumnName="所属院系" />
+          <ScalarProperty Name="所属班级" ColumnName="所属班级" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="teacher">
+      <EntityTypeMapping TypeName="sunshineModel.teacher">
+        <MappingFragment StoreEntitySet="teacher">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="sex" ColumnName="sex" />
+          <ScalarProperty Name="age" ColumnName="age" />
+          <ScalarProperty Name="yuanxi" ColumnName="yuanxi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="teachers">
+      <EntityTypeMapping TypeName="sunshineModel.teachers">
+        <MappingFragment StoreEntitySet="teachers">
+          <ScalarProperty Name="tId" ColumnName="tId" />
+          <ScalarProperty Name="tName" ColumnName="tName" />
+          <ScalarProperty Name="tSubject" ColumnName="tSubject" />
+          <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="test">
+      <EntityTypeMapping TypeName="sunshineModel.test">
+        <MappingFragment StoreEntitySet="test">
+          <ScalarProperty Name="QuestionId" ColumnName="QuestionId" />
+          <ScalarProperty Name="Question" ColumnName="Question" />
+          <ScalarProperty Name="states" ColumnName="states" />
+          <ScalarProperty Name="answerA" ColumnName="answerA" />
+          <ScalarProperty Name="answerB" ColumnName="answerB" />
+          <ScalarProperty Name="answerC" ColumnName="answerC" />
+          <ScalarProperty Name="answerD" ColumnName="answerD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="uninty">
+      <EntityTypeMapping TypeName="sunshineModel.uninty">
+        <MappingFragment StoreEntitySet="uninty">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="men" ColumnName="men" />
+          <ScalarProperty Name="men1" ColumnName="men1" />
+          <ScalarProperty Name="men2" ColumnName="men2" />
+          <ScalarProperty Name="men3" ColumnName="men3" />
+          <ScalarProperty Name="men4" ColumnName="men4" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="zhuanye">
+      <EntityTypeMapping TypeName="sunshineModel.zhuanye">
+        <MappingFragment StoreEntitySet="zhuanye">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="专业名称" ColumnName="专业名称" />
+          <ScalarProperty Name="专业负责人" ColumnName="专业负责人" />
+          <ScalarProperty Name="专业人数" ColumnName="专业人数" />
+          <ScalarProperty Name="讲师" ColumnName="讲师" />
+          <ScalarProperty Name="辅导员" ColumnName="辅导员" />
+          <ScalarProperty Name="所属院系" ColumnName="所属院系" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

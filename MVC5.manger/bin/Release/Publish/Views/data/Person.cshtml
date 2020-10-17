@@ -1,0 +1,92 @@
+﻿
+@{
+    ViewBag.Title = "Person";
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>info</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    
+    <link href="~/style/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/style/person.css" rel="stylesheet" />
+    <link href="~/022/common/layui/css/layui.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="box">
+        <header class="larry-personal-tit" id="titel">
+            <p>个人信息</p>
+        </header>
+        <div class="larry-personal-body" id="textss">
+                <div class="row">
+                    <div class="col-xs-6">
+                        I&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;D: <input type="text" id="userID" class="layui-disabled" readonly="">
+                    </div>
+                    <div class="col-xs-6">
+                        姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名:<input type="text" id="userName" class="layui-disabled" readonly="">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6">
+                        性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp别:<input type="text" id="userSex" class=" layui-disabled" readonly="">
+                    </div>
+                    <div class="col-xs-6">
+                        电&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;话: <input type="text" id="userPhone" class=" layui-disabled" readonly="">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6">
+                        名&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;族: <input type="text" id="usermingzu" class="layui-disabled" readonly="">
+                    </div>
+                    <div class="col-xs-6">
+                        用户地址: <input type="text" autocomplete="off" id="userAderrs" class=" layui-disabled" readonly="">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6">
+                        用户类型:<input type="text" id="userType" autocomplete="off" class="layui-disabled" readonly="">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6">
+                        头像:<img id="img" src="" style="width:80px;height:80px;" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class=".col-md-3 .col-md-offset-3">
+                        <button class="btn btn-info" onclick="updown()" style="margin-left:180px;">上传头像</button>
+                    </div>
+                </div> 
+        </div>
+        @*上传头像模态框*@
+        <div class="modal fade" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">上传头像</h4>
+                    </div>
+                    <div class="modal-body">
+                     <input type="file" id="file"/>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" onclick="saveMenu()">Save changes</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+    </div>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/data/main.js"></script>
+</body>
+</html>

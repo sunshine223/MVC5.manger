@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="sunshineModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Class">
+    <Key>
+      <PropertyRef Name="classid" />
+    </Key>
+    <Property Name="classid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="className" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="classSum" Type="Int32" Nullable="false" />
+    <Property Name="classTeater" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="isDeleted" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Elesson">
+    <Key>
+      <PropertyRef Name="eId" />
+    </Key>
+    <Property Name="eId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="eSubject" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="eName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="studentId" Type="Int32" Nullable="false" />
+    <Property Name="isDeleted" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Grade">
+    <Key>
+      <PropertyRef Name="gId" />
+    </Key>
+    <Property Name="gId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="className" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Class" Type="Int32" Nullable="false" />
+    <Property Name="isDeleted" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="info">
+    <Key>
+      <PropertyRef Name="name" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="pwd" Type="String" MaxLength="12" FixedLength="true" Unicode="false" />
+    <Property Name="states" Type="Int32" />
+  </EntityType>
+  <EntityType Name="menu">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="menuName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="menuType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="menuFatherId" Type="Int32" />
+    <Property Name="userRole" Type="Int32" Nullable="false" />
+    <Property Name="states" Type="Int32" Nullable="false" />
+    <Property Name="hasChild" Type="Int32" Nullable="false" />
+    <Property Name="url" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="nianji">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="年级名称" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="年级主任" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="教研室主任" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="profession">
+    <Key>
+      <PropertyRef Name="cId" />
+    </Key>
+    <Property Name="cId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="profession1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="eName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="isDeleted" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="student">
+    <Key>
+      <PropertyRef Name="studentourid" />
+    </Key>
+    <Property Name="studentourid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="eName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="studentId" Type="Int32" Nullable="false" />
+    <Property Name="collegeId" Type="Int32" Nullable="false" />
+    <Property Name="cId" Type="Int32" Nullable="false" />
+    <Property Name="gId" Type="Int32" Nullable="false" />
+    <Property Name="Classid" Type="Int32" Nullable="false" />
+    <Property Name="isDeleted" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="subjects">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="科目名称" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="专业讲师" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="所属院系" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="所属班级" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="teacher">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="sex" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="age" Type="Int32" />
+    <Property Name="yuanxi" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="teachers">
+    <Key>
+      <PropertyRef Name="tId" />
+    </Key>
+    <Property Name="tId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="tSubject" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="isDeleted" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="test">
+    <Key>
+      <PropertyRef Name="QuestionId" />
+    </Key>
+    <Property Name="QuestionId" Type="Int32" Nullable="false" />
+    <Property Name="Question" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="states" Type="Int32" />
+    <Property Name="answerA" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="answerB" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="answerC" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="answerD" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="uninty">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="men" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="men1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="men2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="men3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="men4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="zhuanye">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="专业名称" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="专业负责人" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="专业人数" Type="Int32" />
+    <Property Name="讲师" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="辅导员" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="所属院系" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="sunshineEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Class" EntityType="Self.Class" />
+    <EntitySet Name="Elesson" EntityType="Self.Elesson" />
+    <EntitySet Name="Grade" EntityType="Self.Grade" />
+    <EntitySet Name="info" EntityType="Self.info" />
+    <EntitySet Name="menu" EntityType="Self.menu" />
+    <EntitySet Name="nianji" EntityType="Self.nianji" />
+    <EntitySet Name="profession" EntityType="Self.profession" />
+    <EntitySet Name="student" EntityType="Self.student" />
+    <EntitySet Name="subjects" EntityType="Self.subjects" />
+    <EntitySet Name="teacher" EntityType="Self.teacher" />
+    <EntitySet Name="teachers" EntityType="Self.teachers" />
+    <EntitySet Name="test" EntityType="Self.test" />
+    <EntitySet Name="uninty" EntityType="Self.uninty" />
+    <EntitySet Name="zhuanye" EntityType="Self.zhuanye" />
+  </EntityContainer>
+</Schema>

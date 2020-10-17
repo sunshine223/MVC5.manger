@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="sunshineModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Class">
+    <Key>
+      <PropertyRef Name="classid" />
+    </Key>
+    <Property Name="classid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="className" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="classSum" Type="int" Nullable="false" />
+    <Property Name="classTeater" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="isDeleted" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Elesson">
+    <Key>
+      <PropertyRef Name="eId" />
+    </Key>
+    <Property Name="eId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="eSubject" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="eName" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="studentId" Type="int" Nullable="false" />
+    <Property Name="isDeleted" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Grade">
+    <Key>
+      <PropertyRef Name="gId" />
+    </Key>
+    <Property Name="gId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="className" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Class" Type="int" Nullable="false" />
+    <Property Name="isDeleted" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="info">
+    <Key>
+      <PropertyRef Name="name" />
+    </Key>
+    <Property Name="name" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="pwd" Type="char" MaxLength="12" />
+    <Property Name="states" Type="int" />
+  </EntityType>
+  <EntityType Name="menu">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="menuName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="menuType" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="menuFatherId" Type="int" />
+    <Property Name="userRole" Type="int" Nullable="false" />
+    <Property Name="states" Type="int" Nullable="false" />
+    <Property Name="hasChild" Type="int" Nullable="false" />
+    <Property Name="url" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="nianji">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="年级名称" Type="varchar" MaxLength="50" />
+    <Property Name="年级主任" Type="varchar" MaxLength="30" />
+    <Property Name="教研室主任" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="profession">
+    <Key>
+      <PropertyRef Name="cId" />
+    </Key>
+    <Property Name="cId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="profession" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="eName" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="isDeleted" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="student">
+    <Key>
+      <PropertyRef Name="studentourid" />
+    </Key>
+    <Property Name="studentourid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="eName" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="studentId" Type="int" Nullable="false" />
+    <Property Name="collegeId" Type="int" Nullable="false" />
+    <Property Name="cId" Type="int" Nullable="false" />
+    <Property Name="gId" Type="int" Nullable="false" />
+    <Property Name="Classid" Type="int" Nullable="false" />
+    <Property Name="isDeleted" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="subjects">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="科目名称" Type="varchar" MaxLength="50" />
+    <Property Name="专业讲师" Type="varchar" MaxLength="30" />
+    <Property Name="所属院系" Type="varchar" MaxLength="50" />
+    <Property Name="所属班级" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="teacher">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="10" />
+    <Property Name="sex" Type="char" MaxLength="2" />
+    <Property Name="age" Type="int" />
+    <Property Name="yuanxi" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="teachers">
+    <Key>
+      <PropertyRef Name="tId" />
+    </Key>
+    <Property Name="tId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tName" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="tSubject" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="isDeleted" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="test">
+    <Key>
+      <PropertyRef Name="QuestionId" />
+    </Key>
+    <Property Name="QuestionId" Type="int" Nullable="false" />
+    <Property Name="Question" Type="varchar" MaxLength="200" />
+    <Property Name="states" Type="int" />
+    <Property Name="answerA" Type="varchar" MaxLength="200" />
+    <Property Name="answerB" Type="varchar" MaxLength="200" />
+    <Property Name="answerC" Type="varchar" MaxLength="200" />
+    <Property Name="answerD" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="uninty">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" />
+    <Property Name="men" Type="varchar" MaxLength="50" />
+    <Property Name="men1" Type="varchar" MaxLength="50" />
+    <Property Name="men2" Type="varchar" MaxLength="50" />
+    <Property Name="men3" Type="varchar" MaxLength="50" />
+    <Property Name="men4" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="zhuanye">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="专业名称" Type="varchar" MaxLength="50" />
+    <Property Name="专业负责人" Type="varchar" MaxLength="50" />
+    <Property Name="专业人数" Type="int" />
+    <Property Name="讲师" Type="varchar" MaxLength="50" />
+    <Property Name="辅导员" Type="varchar" MaxLength="50" />
+    <Property Name="所属院系" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityContainer Name="sunshineModelStoreContainer">
+    <EntitySet Name="Class" EntityType="Self.Class" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Elesson" EntityType="Self.Elesson" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Grade" EntityType="Self.Grade" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="info" EntityType="Self.info" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="menu" EntityType="Self.menu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="nianji" EntityType="Self.nianji" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="profession" EntityType="Self.profession" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="student" EntityType="Self.student" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="subjects" EntityType="Self.subjects" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="teacher" EntityType="Self.teacher" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="teachers" EntityType="Self.teachers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="test" EntityType="Self.test" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="uninty" EntityType="Self.uninty" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="zhuanye" EntityType="Self.zhuanye" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
