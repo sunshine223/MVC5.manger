@@ -1,0 +1,9 @@
+C:\Users\Administrator\Desktop\mvc5\Service\bin\Debug\Service.dll
+C:\Users\Administrator\Desktop\mvc5\Service\bin\Debug\Service.pdb
+C:\Users\Administrator\Desktop\mvc5\Service\bin\Debug\IService.dll
+C:\Users\Administrator\Desktop\mvc5\Service\bin\Debug\IService.pdb
+C:\Users\Administrator\Desktop\mvc5\Service\obj\Debug\Service.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\mvc5\Service\obj\Debug\Service.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\mvc5\Service\obj\Debug\Service.csproj.CopyComplete
+C:\Users\Administrator\Desktop\mvc5\Service\obj\Debug\Service.dll
+C:\Users\Administrator\Desktop\mvc5\Service\obj\Debug\Service.pdb

@@ -1,0 +1,6 @@
+C:\Users\Administrator\Desktop\mvc5\IService\bin\Debug\IService.dll
+C:\Users\Administrator\Desktop\mvc5\IService\bin\Debug\IService.pdb
+C:\Users\Administrator\Desktop\mvc5\IService\obj\Debug\IService.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\mvc5\IService\obj\Debug\IService.dll
+C:\Users\Administrator\Desktop\mvc5\IService\obj\Debug\IService.pdb
+C:\Users\Administrator\Desktop\mvc5\IService\obj\Debug\IService.csprojAssemblyReference.cache
